@@ -23,14 +23,17 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
 -What aspect of security do load balancers protect? What is the advantage of a jump box?_
+	
 	The load balancer can help protect the web servers from suspicious traffic and potential attacks.
 	The JumpBox allows an admin to access the webservers from a single node that can be monitored and secured.
 	
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
 -What does Filebeat watch for?_
+	
 	Collects data about the file system
 
 -What does Metricbeat record?_
+	
 	Collects machine metrics
 
 The configuration details of each machine may be found below.
@@ -49,10 +52,12 @@ The machines on the internal network are not exposed to the public Internet.
 
 Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 -Add whitelisted IP addresses_
+	
 	The JumpBox only accepts conenctions from my Home IP address.
 
 Machines within the network can only be accessed by _____.
 -Which machine did you allow to access your ELK VM? What was its IP address?_
+	
 	The Elk machine can only be accessed by my JumpBox
 
 A summary of the access policies in place can be found in the table below.
@@ -68,6 +73,7 @@ A summary of the access policies in place can be found in the table below.
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 -What is the main advantage of automating configuration with Ansible?_
+	
 	Makes deploying new machines quick and easy  while making sure that they are set up correctly and the same way eveyr time.
 
 The playbook implements the following tasks:
@@ -86,17 +92,21 @@ https://github.com/KhodiG/CyberSecurityBootCamp_Proj_1/blob/main/Images/Elk761.P
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 List the IP addresses of the machines you are monitoring_
+	
 	10.0.0.7
 	10.0.0.8
 
 We have installed the following Beats on these machines:
 Specify which Beats you successfully installed_
+	
 	FileBeat
 	MetricBeat
 
 These Beats allow us to collect the following information from each machine:
 In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+	
 	FileBeat: Monitors log files specified, collects log events and forwards them to desired locations for indexing. It will show things like unique visitors, what OS they're using, avg bytes, etc.
+	
 	MetricBeat: Periodically collects metric data from servers such as CPU or memory usage.
 
 ### Using the Playbook
@@ -109,9 +119,13 @@ SSH into the control node and follow the steps below:
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
+	
 	/etc/ansible/file/filebeat-configuration.yml
+	
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+	
 	You can use the host file in the ansible folder to organize your machine into groups, then designate which groups install which containers in the .yml
+	
 - _Which URL do you navigate to in order to check that the ELK server is running?
+- 
 	https://20.38.34.142:5601/app/kibana
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
